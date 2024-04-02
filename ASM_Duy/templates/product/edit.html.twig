@@ -1,0 +1,51 @@
+
+
+
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Edit Category{% endblock %}
+
+{% block body %}
+<div class="title">
+    <h1>Edit Product</h1>
+    </div>
+<div class="update">
+    {{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
+</div>
+<div class="back">
+    <a href="{{ path('app_product_index') }}">back to list</a>
+</div>
+<div class="delete">
+    {{ include('product/_delete_form.html.twig') }}
+</div>
+
+<style>
+    .update {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+
+    .title {
+        display: flex;
+        justify-content: center;
+    }
+
+    .delete {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .back {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     
+    }
+</style>
+
+{% endblock %}

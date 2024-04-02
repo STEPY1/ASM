@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    <link rel="stylesheet" href="https://bootswatch.com/5/cerulean/bootstrap.min.css">
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+        <style>
+            .navbar-nav .nav-item {
+                margin-right: 20px;
+            }
+        
+            .navbar-nav .nav-item:last-child {
+                margin-right: 0;
+            }
+        
+            /* Style the search form */
+            .search-form {
+                margin-left: auto;
+                display: flex;
+                align-items: center;
+            }
+        
+            .search-input {
+                margin-right: 10px;
+            }
+        
+            /* Style the cart icon */
+            .nav-link-cart {
+                display: flex;
+                align-items: center;
+                margin-left: 10px;
+            }
+        
+            /* Style the login/logout button */
+            .login-logout-btn {
+                margin-left: 10px;
+            }
+        
+            /* Update the footer styles */
+            .footer {
+                background-color: #343a40;
+                color: white;
+                padding: 30px 0;
+            }
+        
+            .footer .row {
+                margin-top: 20px;
+            }
+        
+            .footer h5 {
+                margin-bottom: 20px;
+            }
+        
+            .footer ul {
+                padding-left: 0;
+                list-style: none;
+            }
+        
+            .footer li {
+                margin-bottom: 10px;
+            }
+            .nav-link {
+               
+                padding-right: 20px;
+              }
+            .collapse navbar-collapse{
+                
+                    justify-content: center;
+                    
+                
+            }
+            .divider {
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+                border: none;
+                border-top: 1px solid #eee;
+
+            }
+
+            .badge-cart {
+                background-color: orange;
+                color: white;
+                font-size: 18px;
+            }
+
+            .search-form {
+                display: flex;
+                align-items: center;
+            }
+
+            .search-input {
+                margin-right: 10px;
+            }
+
+            .footer {
+                background-color: #f8f9fa;
+                padding: 30px 0;
+            }
+
+            .footer .row {
+                margin-top: 20px;
+            }
+
+            .footer h5 {
+                margin-bottom: 20px;
+            }
+
+            .footer ul {
+                padding-left: 0;
+                list-style: none;
+            }
+
+            .footer li {
+                margin-bottom: 10px;
+            }
+        </style>
+    {% endblock %}
+
+
+</head>
+<body>
+    {% block header %}
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            
+                <a class="nav-link" href="http://127.0.0.1:8000">
+                   <img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD3ElEQVR4nO2Ze4hVVRTGf2OM2hiazxySURNMFEWnaVTE9ysoEv9IslQMVJAsKqJS8g9HQQtBfKCFKGqphCCFWAgWmmKBIj5JfKIpNuGj1LEhc64s+C5sDufcOffcfcYG7gfrn2HP2vs767G/vS4UUUQRRQRQCrwDnAX200zRFzgJZBxrSzPDq8CdAAmzfgn9PQvMANYBPwM3gHPAGFJED6A+hITZ+zF9lAAvAkuB3yJ8ZZSyqdWEYTLwb8jGF4CyGH725Di8a5fTIPEG8ItTB2OBP0I23+oQDkMF0BCTyHe+SVQ66fQr8Iz+3hXYBPwXOMBB/U8YPohJwmyhTxL2dU+FhHyEs6YX8CmwD7gO3FK0FgMdAv4O5UHkLZ9E5kZs8hDYoOKPi2F5pFVGtegFT0bUgWuWVt+LcDXQDWgFtNdd8xqwKuTOiWNT/NCAOQk292mzfRHJ1sbxPFPCl23xQWKgnNUCLYH+wE9NSMJqcLcPIp/J4XLnby3UidKMTr06oN03BcMOfEWOTUoE8XrI3eHL9jr79Cy0BVfK6e/SRfm0ZR8ptRE4oMg3AM8lJfKhnNo9kQtrUkyxuyr2CcATSYnsljOT1rnQBriUAok7jgxC91JUZuTEn3L4fIy1r6RU8KYChgNfADeBUUmIHJXDnSp8X7I8qZ0FJiYh0kP3R0byorGwWuTup0DgDPBSzI8ZiSHOc/bLGAX3bgpEPpJve6zNUhonwmBJcnP6Y6AAgyhRl/NJxPbe7pxhMwXApMl5OTIlPC1HqlnUvkohMqelhAtKMcPTKvys4wPqKlGYCfzlsdBL5bc18AIeMEW3fXaTXcCAiLUdpdfqCiRyWx3LavCqpFNnH2SeAhY5jcAkxdd67oahHFgN3POYaid9kUGOVjhDCRsPrdXBw9AOmAqsVBdcqzFrUiV9Tcq8OumtH0SFulVWDVsqLdNTNw4G6eFWSIQuAZ8DVT4I9QF2OF/Ycnu+9FhjKNMIyUfaXQBq9BgsCFUByWLjobdjOC6PMejIPI5R0mhNJt0vNa2Ru2BcxCg2k8C24RmTAqOgE5rmR+FNT6/PY6QAi8J04KKzkU0cR0asn+jIkkxC+5sUYXUyT3WT3fCHiDlxRUBNPACOaNa8LGBLgI81h3tZ6+03ltRhnWyBOltGne4boHfI2vGKZnCGHIYS5/n9LU2I9vqidc5XX6+xaz7ootFsdkBer/upyVGumz7bsf6R7LHD9dQMuhMwVNGpUVc67EQ1a7WK4mNFL/1Q9DDPwq7VIP09SaH/DboDn2iac0XP6NuKwHZFZIYi5E08FlFEETRPPAKPdjWqM4PSHgAAAABJRU5ErkJggg==">
+                </a>
+         
+            
+            <div class="collapse navbar-collapse justify-content-center" id="navbarColor02">
+
+                <ul class="navbar-nav mx-auto">
+                    
+                    <li class="nav-item mx-1 ">
+                        <a class="nav-link" href="http://127.0.0.1:8000">Home</a>
+                    </li>
+                   
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="contactnew">Contact</a>
+                    </li>
+                   
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="orderstatus">Order Status</a>
+                    </li>
+                </ul>
+               
+                
+                <ul class="navbar-nav">
+                    <form class="d-flex" action="{{ path('search') }}" method="GET" style="margin-right: 40px;">
+                        <input class="form-control me-sm-0" type="search" name="keyword" placeholder="Search" required>
+                        <button class="btn btn-secondary my-2 my-sm-0 mx-2" type="submit">Search</button>
+                    </form>
+                </ul>
+                  
+                <ul class="navbar-nav">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="/cart" style="margin-right: 40px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+               
+                <form>
+                    <a class="btn btn-secondary" href="/{{ app.user ? 'logout' : 'login' }}" @click="isOpen = false">
+                        {{ app.user ? 'logout' : 'login'}}
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <hr class="divider">
+{% endblock %}
+
+
+{% block body %}
+
+<!-- Content of the shoe store website -->
+
+{% endblock %}
+
+<hr class="divider">
+
+{% block footer %}
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Shoe Store Information</h5>
+                <p>Welcome to the shoe store in Go Vap District! We are proud to be one of the leading shoe stores, offering customers a great fashion experience.</p>
+                <p>With high-quality products, professional services, and dedicated staff, we are committed to bringing absolute satisfaction to our customers.</p>
+            </div>
+            <div class="col-md-6">
+                <h5>Contact Information</h5>
+                <ul class="list-unstyled">
+                    <li>Address: 68 Quang Trung, Go Vap, Ho Chi Minh City</li>
+                    <li>Phone: 088374873</li>
+                    <li>Email: phungnhatduy.com</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}
+
+
+
+</body>
+</html>

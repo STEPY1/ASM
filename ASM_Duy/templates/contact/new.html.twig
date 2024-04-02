@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Contact{% endblock %}
+
+{% block stylesheets %}
+<style>
+    .login-container {
+        display: grid;
+       
+        gap: 20px;
+        height: 70vh;
+    }
+
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-form .form-control {
+        width: 300px;
+        margin-bottom: 10px;
+    }
+
+    .login-title {
+        text-align: center; /* Center the title text */
+        margin-bottom: 20px;
+    }
+
+    .create {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px; /* Use margin-top instead of padding-top */
+    }
+
+    /* Use a more specific selector for the map container */
+    .login-map-container {
+        grid-column: span 1; /* Adjust the number of grid columns */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Responsive design for the map */
+    .login-map-container iframe {
+        width: 100%;
+        height: 400px;
+        border: 0;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+    <div class="login-container">
+        <div class="login-form">
+            <h1 class="login-title">Contact</h1>
+            {{ form_start(form) }}
+            {{ form_row(form.first_name, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_row(form.last_name, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_row(form.email, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_row(form.phone_number, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_row(form.title_name, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_row(form.note, { 'attr': {'class': 'form-control', 'rows': 5} }) }}
+            <div class="create">
+                <button class="btn btn-primary btn-block" type="submit">Send</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+      
+    </div>
+{% endblock %}

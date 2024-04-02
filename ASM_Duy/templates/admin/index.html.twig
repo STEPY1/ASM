@@ -1,0 +1,105 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background-color: #fff;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+        .content{
+          text-align: center;
+        }
+        
+        .admin-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .admin-links li {
+            list-style: none;
+            margin: 0 10px;
+        }
+        
+        .admin-links li a {
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+        }
+        
+        .admin-links li a:hover {
+            background-color: #fff;
+            color: #fff;
+        }
+        
+        .content {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content h2 {
+            margin-top: 0;
+        }
+        
+        .video-container {
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    </style>
+
+    <div class="header">
+        <h1>Admin Management Page</h1>
+    </div>
+ 
+    
+    <ul class="admin-links">
+        <li>
+            <a href="http://127.0.0.1:8000/product">Product Management</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:8000/category">Category Management</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:8000/user">User Management</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:8000/order">Orders Management</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:8000/contact">Feedback Management</a>
+        </li>
+        <li>
+          <a href="http://127.0.0.1:8000/post">Post Management</a>
+      </li>
+    </ul>
+    
+   
+    
+{% endblock %}
+
+
+
+

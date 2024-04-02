@@ -1,0 +1,53 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}New Category{% endblock %}
+
+{% block body %}
+    <style>
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30vh;
+        }
+
+        .login-form .btn-block {
+            display: flex;
+            justify-content: center;
+            width: 30vw;
+            padding-top: 20px;
+        }
+
+        .login-title {
+            display: flex;
+            justify-content: center;
+        }
+
+        .create {
+            display: flex;
+            justify-content: center;
+            width: 30vw;
+            padding-top: 20px;
+        }
+
+        .signup-link {
+            display: flex;
+            justify-content: center;
+            padding-top: 30px;
+        }
+    </style>
+
+    <h1 class="login-title">Create new Category</h1>
+    <div class="login-container">
+        {{ form_start(form) }}
+        {{ form_row(form.name, { 'attr': {'class': 'form-control'} }) }}
+        <div class="create">
+            <button class="btn btn-primary btn-block" type="submit">Create</button>
+        </div>
+
+        <div class="signup-link">
+            <a href="{{ path('app_category_index') }}">Back to list</a>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

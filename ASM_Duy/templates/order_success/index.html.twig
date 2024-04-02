@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<style>
+    .success-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .success-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .success-message { color: green; }
+    .success-wrapper{
+        height: 50vh;
+    }
+</style>
+
+<div class="success-wrapper">
+    <h1>Order Successful! ✅</h1>
+    
+    <p class="success-message">Thank you for your order. Your purchase was successful!</p>
+    
+    <p>This friendly message is coming from:</p>
+    
+    <ul>
+        <a class="nav-link" href="http://127.0.0.1:8000">Quay về trang chủ</a>
+    </ul>
+</div>
+{% endblock %}
